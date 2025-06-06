@@ -1,0 +1,305 @@
+@keyframes growHeight {
+    from {
+        max-height: 400px; /* Match the initial max-height */
+    }
+    to {
+        max-height: 700px; /* Increased to ensure enough space for results */
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body, h1, form, input, label, button, div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #0d52c2, #022a70, #499ef8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 15px 0;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+h1 {
+    color: #fff;
+    margin-bottom: 32px;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    line-height: 1.6;
+}
+
+form#bmi-form {
+    background: #fff;
+    padding: 32px 28px 24px 28px;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(33,147,176,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 320px;
+    height: auto;
+    max-height: 350px; /* Increased from 300px to accommodate buttons */
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+form#bmi-form.expanded {
+    animation: growHeight 0.3s ease-in-out forwards;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #2193b0;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+}
+
+input[type="number"] {
+    padding: 10px 12px;
+    border: 1.5px solid #b2ebf2;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+}
+
+input[type="number"]:focus {
+    border-color: #2193b0;
+    background: #f0fafd;
+}
+
+.height-inputs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.feet-group, .inches-group {
+    display: flex;
+    align-items: center;
+}
+
+#height-feet, #height-inches {
+    width: 80px;
+}
+
+.unit {
+    margin-left: 5px;
+    font-weight: bold;
+    color: #2193b0;
+}
+
+/* Button styles */
+button[type="submit"], .reset-btn {
+    margin-top: 20px;
+    padding: 12px 0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background-size: 200% auto;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"] {
+    background-image: linear-gradient(90deg, #2193b0 0%, #6dd5ed 33%, #2193b0 66%, #6dd5ed 100%);
+    background-size: 300% 100%;
+    transition: all 0.5s ease;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.reset-btn {
+    margin-top: 20px;
+    padding: 12px 0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+    background-image: linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 33%, #ff6b6b 66%, #ff8e8e 100%) !important;
+    background-size: 300% 100%;
+    transition: all 0.5s ease;
+}
+
+button[type="submit"]:hover, .reset-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(33,147,176,0.2);
+    background-position: 100% 50%;
+    animation: gradientFlow 2s ease infinite;
+}
+
+/* Active state */
+button[type="submit"]:active, .reset-btn:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 2px 8px rgba(33,147,176,0.1);
+}
+
+.recommendations {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.unit-toggle {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #008621;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.output {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f0fafd;
+    text-align: center;
+}
+
+.output, #result, .recommendations {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.show-result {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#result {
+    margin-top: 28px;
+    min-height: 32px;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 1px 4px rgba(33,147,176,0.15);
+}
